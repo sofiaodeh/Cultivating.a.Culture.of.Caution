@@ -1,4 +1,4 @@
-%This code plays a video and audio file when a button is pressed
+%This code initates an alarm followed by the display of a video that demonstrates safety protocols when a button is pressed
 %clear out windows
 clc;
 clear;
