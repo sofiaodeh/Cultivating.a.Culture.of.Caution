@@ -1,0 +1,37 @@
+%This code plays a video and audio file when a button is pressed
+%clear out windows
+clc;
+clear;
+%connect arduino board to the computer
+COM = '/dev/tty.usbserial-DA01LYD0';
+a = arduino('COM3','Uno');
+%set pins
+button = 'D3';
+configurePin(a, button, 'Pullup')
+while true %continuous loop
+ buttonState = readDigitalPin(a, button); %read button state
+ if buttonState == 0 %if button is pressed
+
+ %set up the video
+ v = VideoReader('alarm_video.mp4'); %read the video file
+ figure(); %create a figure
+ ax = axes();
+ frame = readFrame(v);
+ im_frame = imshow(frame, 'Parent', ax);
+ %set up and play the audio
+ [y, Fs] = audioread('alarmlongwav.wav');
+ sound(y, Fs, 8);
+ %play video
+ while hasFrame(v)
+ im_frame.CData = readFrame(v);
+ drawnow
+ end
+
+ close all; %close the figure created
+ continue;
+ else
+
+ continue;
+
+ end
+End
