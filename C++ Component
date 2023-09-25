@@ -1,0 +1,80 @@
+/* Sofia Odeh
+* Operator System
+* This is a code for group Four Engineers' museum exhibit
+* The code guides the user to different information available and demonstrates a
+fast-responding operator
+*/
+#include <iostream>
+using namespace std;
+int main() {
+ int i=9;
+while(i==9){ //while loop keeps operator running in a constant loop
+ int operatorNumber;
+ char letter;
+ cout<<"------------------------------------------------------------------\n"
+ //welcome user to program and print option menu
+ "Welcome to the Campus Safety Information Program!\n"
+ "Please input the letter corresponding to what menu option you would
+like to access:\n"
+ "1. Tunnel System (A)\n"
+ "2. Alarm System(B)\n"
+ "3. General Information(C)\n"
+ "4. Operator (D)";
+cin>>letter;//receive option chosen by user
+ switch (letter){//switch-case loop prints out different information depending
+on user input
+ case 'A'://case A gives user information on the tunnel system and directs
+user to where the 3D-model can be found
+ cout <<"There is a 3D-Model of the Northeastern Tunnel System on the
+other side of the circular exhibit. \n" << endl;
+ cout<<"Please take note of the buildings you frequent the most and
+what buildings they connect to through the tunnels.\n "<<endl;
+ cout<<"The exits leading outside the tunnel system are highlighted
+with red paint.\nThey can serve as an undercover escape route in case of
+danger.\n";
+ break;//break in between cases stops from continuing onto next case
+ case 'B'://case B instructs user on where to find the Arduino Alarm System
+and how to interact with it
+ cout<<"To the left of you there is an active Arduino Alarm System.\n"
+ "Please press the red button to activate it\nGet close to the
+laptop to hear the alarm sound\n";
+ break;
+ case'C'://case C encourages reader to walk around the trifold to learn
+more about resiliency
+ cout<<"To learn more about resiliency engineering in relation to
+dangerous school settings,\n"
+ "Please walk to the other side of the exhibit and follow the storyline\n";
+ break;
+ case'D'://case D initiates the Emergency Operator
+ beginning://sends user back to the start of the operator if user does
+not input 1,2,3 (default)
+ //print welcome to the emergency operator
+ cout<<"Welcome to Northeastern's Emergency Operator:\n"
+ "For the Northeastern police phone number: press 1\n"
+ "For the Emergency Medical Services phone number: press 2\n"
+ "For the Fire Department phone number: press 3 \n";
+ cin>>operatorNumber;//receive user input as choice for what phone
+number user needs
+ //initiate nested if statement
+ if (operatorNumber==1){//if user presses 1 the program prints the NU
+police phone number
+ cout<<"Call 617-373-3333"<<endl;}
+ else if (operatorNumber==2){//if user presses 2 the program prints the
+Medical Services phone number
+ cout<<"Call 617-343-2367"<<endl;}
+ else if (operatorNumber==3){//if user presses 3 the program print the
+Fire Department phone number
+ cout<<"Call 617-343-2880"<<endl;}
+ else{
+ cout<<"Please try typing a number corresponding to your preference
+again"<<endl;//default if neither inputs are received
+ goto beginning;}
+ break;
+ default:// default for switch-case loops if user does not input A, B, C,
+or D
+ cout<<"Please try typing A, B, C, or D depending on your preference
+again"<<endl;
+ break;
+ }}
+return 0;
+}
